@@ -1,5 +1,5 @@
 <template>
-  <div class="events">
+  <div v-if="plans" class="benefitPlans">
     <BenefitPlanCard v-for="plan in plans" :key="plan.id" :plan="plan"/>
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
 // @ is an alias to /src
 import BenefitPlanCard from '@/components/BenefitPlanCard.vue'
-import axios from 'axios'
+import PlanService from '@/services/PlanService.js'
 
 export default {
   name: 'PlanList',
@@ -20,9 +20,9 @@ export default {
     }
   },
   created(){
-      axios.get(""
-      ).then(response => {
-        console.log('events:', response.data)
+      PlanService.getPlans()
+      .then(response => {
+        this.plans = response.data;
       })
       .catch(error => {
         console.log(error);
@@ -31,7 +31,7 @@ export default {
 }
 </script>
 <style scoped>
-  .events{
+  .benefitPlans{
     display: flex;
     flex-direction: column;
     align-items: center;

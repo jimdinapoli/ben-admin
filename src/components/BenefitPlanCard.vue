@@ -1,24 +1,38 @@
 <template>
-  <div class="benefit-plan-card">
+<router-link class="plan-link"
+ :to=" { name: 'PlanDetails', params: { id: plan.id }}">
+  <div class="plan-card">
     <span> {{ plan.category }}</span>
     <h4> {{ plan.name }}</h4>
   </div>
+</router-link>
 </template>
 
 <script>
 export default {
-  name: 'BenefitPlanCard',
   props: {
-    plan: Object
+    plan: {
+      type: Object,
+      required: true
+    }
   }
 }
 </script>
 
 <style scoped>
-.benefit-plan-card{
+.plan-card {
   padding: 20px;
-  width: 300px;
+  width: 250px;
+  cursor: pointer;
   border: 1px solid #39495c;
   margin-bottom: 18px;
+}
+.plan-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+}
+.plan-link {
+  color: #2c3e50;
+  text-decoration: none;
 }
 </style>
