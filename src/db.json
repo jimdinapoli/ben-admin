@@ -1,0 +1,12 @@
+{
+    "plans": [
+        {
+            "id": 0,
+            "category": "",
+            "name": "",
+            "title": "",
+            "description": "",
+            "requiresEligibility": 1
+        }
+    ]
+}
