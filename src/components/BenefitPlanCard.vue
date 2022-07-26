@@ -2,8 +2,10 @@
 <router-link class="plan-link"
  :to=" { name: 'PlanDetails', params: { id: plan.id }}">
   <div class="plan-card">
-    <span> {{ plan.category }}</span>
+    <h4> {{ plan.title }}</h4>
     <h4> {{ plan.name }}</h4>
+    <span> {{ plan.category }}</span>
+    <p> {{ plan.description }}</p>
   </div>
 </router-link>
 </template>

@@ -34,13 +34,13 @@ export default {
     error: {
       type: String,
       default: ''
-    },
-    setup () {
+    }
+  },
+  setup () {
       const uniqueId = UniqueIdentifier().getId()
       return {
         uniqueId
       }
     }
-  }
 }
 </script>

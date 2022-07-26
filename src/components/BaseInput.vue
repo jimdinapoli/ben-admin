@@ -38,10 +38,10 @@ export default {
     }
   },
   setup () {
-    const uniqueId = UniqueIdentifier().getId()
-    return {
-      uniqueId
+      const uniqueId = UniqueIdentifier().getId()
+      return {
+        uniqueId
+      }
     }
-  }
 }
 </script>
