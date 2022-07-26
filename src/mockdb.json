@@ -1,9 +1,16 @@
 {
     "plans": [
         {
-            "id": 1234,
-            "name": "Horizon - DIRECT ACCESS",
-            "Category": "Health"
+            "id": 0,
+            "category": "",
+            "name": "",
+            "title": "",
+            "description": "",
+            "requiresEligibility": 1,
+            "checkboxOptions": {
+                "employerPaid": false,
+                "openEnrollmentOnly": false
+            }
         }
     ]
 }
