@@ -6,7 +6,15 @@
             "name": "",
             "title": "",
             "description": "",
-            "requiresEligibility": 1
+            "requiresEligibility": 1,
+            "checkboxOptions": {
+                "employerPaid": false,
+                "openEnrollmentOnly": false
+            },
+            "requireEligibilityOptions": [
+              { "label": 1},
+              { "label": 0}
+            ]
         }
     ]
 }

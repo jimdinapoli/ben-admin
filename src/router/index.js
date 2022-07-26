@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import PlanList from '../views/PlanList.vue'
 import PlanDetails from '../views/PlanDetails.vue'
+import PlanCreate from '../views/PlanCreate.vue'
 import About from '../views/About.vue'
+import BaseInput from '../components/BaseInput.vue'
 
 const routes = [
   {
@@ -14,6 +16,12 @@ const routes = [
     name: 'PlanDetails',
     props: true,
     component: PlanDetails
+  },
+  {
+    path: '/planCreate',
+    name: 'PlanCreate',
+    props: true,
+    component: PlanCreate, BaseInput
   },
   {
     path: '/about',

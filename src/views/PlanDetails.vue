@@ -2,7 +2,7 @@
     <div v-if="plan">
          <p>{{ plan.id }}</p>
         <h1>{{ plan.name }}</h1>
-        <p>{{ plan.Category }}</p>       
+        <p>{{ plan.category }}</p>       
     </div>
 </template>
 

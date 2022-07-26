@@ -1,0 +1,28 @@
+
+{
+    "employmentStatus": [
+        "Full Time",
+        "Part Time"
+    ],
+    "employees": [
+        {
+            "id": 1234,
+            "firstName": "Jim",
+            "lastName": "Smith",
+            "employmentStatus": "Full Time",
+            "phoneNumbers":[
+                {
+                    "id": 1,
+                    "type":"Mobile",
+                    "phoneNumber": "732.223.2543"
+                }
+            ],
+            "emailAddresses": [{
+                "id": 1,
+                "type": "Work",
+                "emailAddress": "erinmcbride@testers.com"
+            }]
+            
+        }
+    ]
+}

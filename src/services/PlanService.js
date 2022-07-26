@@ -15,5 +15,8 @@ export default {
     },
     getPlan(id){
         return apiClient.get('/plans/' + id);
+    },
+    insertPlan(plan){
+        return apiClient.post('/plans', plan);
     }
 }
