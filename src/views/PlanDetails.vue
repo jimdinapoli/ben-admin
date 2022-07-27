@@ -1,16 +1,17 @@
 <template>
-    <div v-if="plan">
-         <p>{{ plan.id }}</p>
-        <h1>{{ plan.name }}</h1>
-        <p>{{ plan.category }}</p>       
+    <div v-if="plan.currentPlan">
+        <h4>{{ plan.currentPlan.name }}</h4>
+        <p>{{ plan.currentPlan.category }}</p>       
     </div>
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
     props: ['id'],
     created(){
-       this.$store.dispatch('fetchPlan', this.id)
+       this.fetchPlan(this.id)
        .catch(error => {
           this.$router.push({
             name: 'ErrorDisplay',
@@ -19,9 +20,10 @@ export default {
         })
     },
     computed:{
-        plan(){
-            return this.$store.state.plan
-        }
+       ...mapState('plan', ['plan'])
+    },
+    methods: {
+        ...mapActions(['fetchPlan'])
     }
 }
 

@@ -1,11 +1,13 @@
 <template>
-  <div v-if="plans" class="benefitPlans">
-    <BenefitPlanCard v-for="plan in plans" :key="plan.id" :plan="plan"/>
+  <h1>Plans available for {{ user.userInfo.name }}</h1>
+  <div v-if="plan.plans" class="benefitPlans">
+    <BenefitPlanCard v-for="plan in plan.plans" :key="plan.id" :plan="plan"/>
   </div>
 </template>
 
 <script>
 import BenefitPlanCard from '@/components/BenefitPlanCard.vue'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'PlanList',
@@ -13,7 +15,7 @@ export default {
     BenefitPlanCard
   },
   created(){
-    this.$store.dispatch('fetchPlans')
+    this.fetchPlans()
     .catch(error => {
           this.$router.push({
             name: 'ErrorDisplay',
@@ -22,9 +24,10 @@ export default {
         })
   },
   computed: {
-    plans() {
-      return this.$store.state.plans
-    }
+    ...mapState(['user', 'plan'])
+  },
+  methods: {
+    ...mapActions('plan', ['fetchPlans'])
   }
 }
 </script>

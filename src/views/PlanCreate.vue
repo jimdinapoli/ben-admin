@@ -74,7 +74,7 @@
 </template>
 
 <script>
-
+import { mapState, mapActions } from 'vuex'
 export default {
     data() {
         return {
@@ -103,13 +103,17 @@ export default {
             ]
         };
     },
+    computed:{
+      ...mapState(['user'])
+    },
     methods: {
+      ...mapActions('plan', ['createPlan']),
       sendForm() {
         const plan = {
           ...this.plan,
-          modifiedBy: this.$store.state.user
+          modifiedBy: this.user.userInfo.name
         }
-        this.$store.dispatch('createPlan', plan)
+        this.createPlan(plan)
         .then(() => {
           this.$router.push({
             name: 'PlanDetails',

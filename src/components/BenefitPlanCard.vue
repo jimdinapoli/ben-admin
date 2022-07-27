@@ -24,7 +24,7 @@ export default {
 <style scoped>
 .plan-card {
   padding: 20px;
-  width: 250px;
+  width: 500px;
   cursor: pointer;
   border: 1px solid #39495c;
   margin-bottom: 18px;
