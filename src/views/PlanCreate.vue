@@ -69,13 +69,12 @@
 
       <button class="btn-submit" type="submit">Submit</button>
     </form>
-
     <pre>{{ plan }}</pre>
   </div>
 </template>
 
 <script>
-import PlanService from '../services/PlanService.js';
+
 export default {
     data() {
         return {
@@ -95,7 +94,8 @@ export default {
                 planOptions: {
                   openEnrollmentOnly: true,
                   employerPaid: false
-                }
+                },
+                modifiedBy: ""
             },
             requireEligibilityOptions: [
               { label: 'Yes', value: 1 },
@@ -105,12 +105,22 @@ export default {
     },
     methods: {
       sendForm() {
-        PlanService.insertPlan(this.plan)
-        .then(response => {
-            console.log(response.data);
+        const plan = {
+          ...this.plan,
+          modifiedBy: this.$store.state.user
+        }
+        this.$store.dispatch('createPlan', plan)
+        .then(() => {
+          this.$router.push({
+            name: 'PlanDetails',
+            params: { id: this.$store.state.plan.id }
+          })
         })
         .catch(error => {
-            console.log(error);
+          this.$router.push({
+            name: 'ErrorDisplay',
+            params: { error: error }
+          })
         })
       }
     }

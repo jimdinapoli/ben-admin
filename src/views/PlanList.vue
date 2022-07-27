@@ -5,28 +5,26 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import BenefitPlanCard from '@/components/BenefitPlanCard.vue'
-import PlanService from '@/services/PlanService.js'
 
 export default {
   name: 'PlanList',
   components: {
     BenefitPlanCard
   },
-  data() {
-    return {
-      plans: null
-    }
-  },
   created(){
-      PlanService.getPlans()
-      .then(response => {
-        this.plans = response.data;
-      })
-      .catch(error => {
-        console.log(error);
-      })
+    this.$store.dispatch('fetchPlans')
+    .catch(error => {
+          this.$router.push({
+            name: 'ErrorDisplay',
+            params: { error: error }
+          })
+        })
+  },
+  computed: {
+    plans() {
+      return this.$store.state.plans
+    }
   }
 }
 </script>

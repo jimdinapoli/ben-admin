@@ -3,6 +3,7 @@ import PlanList from '../views/PlanList.vue'
 import PlanDetails from '../views/PlanDetails.vue'
 import PlanCreate from '../views/PlanCreate.vue'
 import About from '../views/About.vue'
+import ErrorDisplay from '../views/ErrorDisplay.vue'
 import BaseInput from '../components/BaseInput.vue'
 
 const routes = [
@@ -27,6 +28,12 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About
+  },
+  {
+    path: '/error/:error',
+    name: 'ErrorDisplay',
+    props: true,
+    component: ErrorDisplay
   }
 ]
 

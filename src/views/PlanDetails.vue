@@ -7,22 +7,21 @@
 </template>
 
 <script>
-import PlanService from '../services/PlanService.js';
 export default {
     props: ['id'],
-    data() {
-        return {
-            plan: null
-        }
-    },
     created(){
-        PlanService.getPlan(this.id)
-        .then(response => {
-            this.plan = response.data;
+       this.$store.dispatch('fetchPlan', this.id)
+       .catch(error => {
+          this.$router.push({
+            name: 'ErrorDisplay',
+            params: { error: error }
+          })
         })
-        .catch(error => {
-            console.log(error);
-        })
+    },
+    computed:{
+        plan(){
+            return this.$store.state.plan
+        }
     }
 }
 
