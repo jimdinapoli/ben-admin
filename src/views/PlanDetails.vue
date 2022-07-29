@@ -20,10 +20,10 @@ export default {
         })
     },
     computed:{
-       ...mapState('plan', ['plan'])
+       ...mapState(['plan'])
     },
     methods: {
-        ...mapActions(['fetchPlan'])
+        ...mapActions('plan', ['fetchPlan'])
     }
 }
 
